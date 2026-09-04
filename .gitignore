@@ -1,0 +1,27 @@
+# Geheimnisse und Zugangsdaten
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.pfx
+*.p12
+id_rsa
+id_ed25519
+id_ecdsa
+**/secrets/
+**/credentials/
+
+# Lokale Laufzeit- und Sicherungsdaten
+docker/data/
+backup/repository/
+restore-test/
+*.log
+*.bak
+*.zip
+*.tar
+*.tar.gz
+
+# Betriebssystemdateien
+Thumbs.db
+.DS_Store
