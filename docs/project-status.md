@@ -19,12 +19,17 @@ Der PowerShell-Systembericht wurde erfolgreich erstellt, getestet und zu GitHub 
 - Linux-Health-Check mit Bash erstellt und validiert
 - Netzwerk-, DNS-, Dienst- und Ressourcenkontrollen implementiert
 - Troubleshooting-Fall INC-001 dokumentiert
+- Linux-Health-Check mit Bash erstellt
+- Netzwerk-, DNS-, Dienst-, CPU-, RAM- und Festplattenprüfungen implementiert
+- Health Check mit Overall status: OK und Exit code: 0 validiert
 
 ## Nächster Schritt
 
 1. PowerShell-Mini-Quiz
 2. Ubuntu WSL2 vorbereiten
 3. Linux-Health-Check mit Bash entwickeln
+4. Aktive Container und belegte Ports kontrollieren
+5. Isolierten Nginx-Service mit Docker Compose auf Port 8080 bereitstellen
 
 ## Schutzregeln
 
@@ -32,3 +37,4 @@ Der PowerShell-Systembericht wurde erfolgreich erstellt, getestet und zu GitHub 
 - Die bestehende VirtualBox-VM wird nicht verändert.
 - Bestehende MySQL-Container und Docker-Daten werden nicht gelöscht.
 - Lokale Systemberichte werden nicht auf GitHub veröffentlicht.
+- Es werden keine Passwörter, privaten Schlüssel oder Tokens veröffentlicht.
