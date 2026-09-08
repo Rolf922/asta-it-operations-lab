@@ -25,3 +25,4 @@ restore-test/
 # Betriebssystemdateien
 Thumbs.db
 .DS_Store
+powershell/reports/
