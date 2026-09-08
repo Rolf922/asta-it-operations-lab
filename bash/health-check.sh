@@ -37,6 +37,16 @@ else
     overall_status=1
 fi
 
+
+# Erreichbarkeit des Nginx-Webservers prüfen
+if curl --fail --silent --show-error --max-time 3 \
+    http://127.0.0.1:8080/ >/dev/null; then
+    echo "[OK] Nginx HTTP service"
+else
+    echo "[WARN] Nginx HTTP service is unavailable"
+    overall_status=1
+fi
+
 echo
 echo "--- Services ---"
 
@@ -54,14 +64,6 @@ check_service() {
 check_service "systemd-journald"
 check_service "systemd-resolved"
 
-echo
-
-if (( overall_status == 0 )); then
-    echo "Overall status: OK"
-else
-    echo "Overall status: WARNING"
-fi
-echo
 echo "--- Ressourcenauslastung ---"
 
 # CPU-Leerlauf mit zwei Messungen im Abstand von einer Sekunde ermitteln
@@ -105,5 +107,15 @@ if (( disk_used >= 80 )); then
 else
     echo "[OK] Festplattenauslastung: ${disk_used}%"
 fi
+
+
+echo
+
+if (( overall_status == 0 )); then
+    echo "Overall status: OK"
+else
+    echo "Overall status: WARNING"
+fi
+echo
 
 exit "$overall_status"

@@ -61,3 +61,56 @@ sudo systemctl enable --now getty@tty1.service
 ### Hinweis
 
 Diese Änderung gilt nur für die WSL2-Laborumgebung. Auf einem realen Linux-Server darf ein Konsolendienst nicht ohne Prüfung deaktiviert werden.
+
+## INC-002 – Nginx-Webdienst nicht erreichbar
+
+**Umgebung:** Nginx unter Docker Compose
+
+### Symptom
+
+Der Linux-Health-Check meldete:
+
+```text
+[WARN] Nginx HTTP service is unavailable
+Overall status: WARNING
+Exit code: 1
+```
+
+### Diagnose
+
+```bash
+docker compose -f docker/compose.yaml ps -a
+docker compose -f docker/compose.yaml logs --tail=10 web
+```
+
+Die Netzwerk- und DNS-Prüfungen waren erfolgreich. Nur der HTTP-Port `8080` war nicht erreichbar. Der Nginx-Container befand sich im gestoppten Zustand.
+
+### Ursache
+
+Der Container wurde für einen kontrollierten Ausfalltest manuell gestoppt.
+
+### Wiederherstellung
+
+```bash
+docker compose -f docker/compose.yaml start web
+```
+
+### Validierung
+
+```bash
+./bash/health-check.sh
+docker inspect --format='{{.State.Health.Status}}' asta-it-operations-lab-web-1
+```
+
+Ergebnis:
+
+```text
+[OK] Nginx HTTP service
+Overall status: OK
+Exit code: 0
+healthy
+```
+
+### Ergebnis
+
+Der Ausfall wurde erkannt, eingegrenzt und ohne Datenverlust behoben.
