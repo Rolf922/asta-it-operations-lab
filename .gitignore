@@ -21,6 +21,7 @@ restore-test/
 *.zip
 *.tar
 *.tar.gz
+texte.txt
 
 # Betriebssystemdateien
 Thumbs.db

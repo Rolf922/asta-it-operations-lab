@@ -15,6 +15,10 @@ Der PowerShell-Systembericht wurde erfolgreich erstellt, getestet und zu GitHub 
 - Festplatten-, Netzwerk- und Dienstestatus erfasst
 - Lokale, zeitgestempelte Berichte erstellt
 - Persönliche Berichte durch `.gitignore` geschützt
+- Ubuntu-WSL2-Systemzustand geprüft und korrigiert
+- Linux-Health-Check mit Bash erstellt und validiert
+- Netzwerk-, DNS-, Dienst- und Ressourcenkontrollen implementiert
+- Troubleshooting-Fall INC-001 dokumentiert
 
 ## Nächster Schritt
 
